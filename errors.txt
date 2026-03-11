@@ -1,0 +1,35 @@
+$ go run cmd/api/main.go
+# apirest/internal/domain/user
+internal/domain/user/service.go:18:38: not enough arguments in call to s.repo.ExistsByEmail
+	have (valueobject.Email)
+	want (context.Context, valueobject.Email)
+internal/domain/user/service.go:32:24: not enough arguments in call to s.repo.Save
+	have (*User)
+	want (context.Context, *User)
+internal/domain/user/service.go:40:38: not enough arguments in call to s.repo.ExistsByEmail
+	have (valueobject.Email)
+	want (context.Context, valueobject.Email)
+internal/domain/user/service.go:54:24: not enough arguments in call to s.repo.Save
+	have (*User)
+	want (context.Context, *User)
+internal/domain/user/service.go:62:38: not enough arguments in call to s.repo.ExistsByEmail
+	have (valueobject.Email)
+	want (context.Context, valueobject.Email)
+internal/domain/user/service.go:76:24: not enough arguments in call to s.repo.Save
+	have (*User)
+	want (context.Context, *User)
+internal/domain/user/service.go:84:34: not enough arguments in call to s.repo.FindByEmail
+	have (valueobject.Email)
+	want (context.Context, valueobject.Email)
+internal/domain/user/service.go:97:25: not enough arguments in call to s.repo.FindByID
+	have (int64)
+	want (context.Context, int64)
+internal/domain/user/service.go:101:28: not enough arguments in call to s.repo.FindByEmail
+	have (valueobject.Email)
+	want (context.Context, valueobject.Email)
+internal/domain/user/service.go:105:31: not enough arguments in call to s.repo.FindByID
+	have (int64)
+	want (context.Context, int64)
+internal/domain/user/service.go:105:31: too many errors
+# apirest/internal/application/user/command
+internal/application/user/command/logout_handler.go:28:31: h.masterAccessLogRepo.InvalidateToken undefined (type master.MasterAccessLogRepository has no field or method InvalidateToken)

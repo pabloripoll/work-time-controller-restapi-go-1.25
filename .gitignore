@@ -1,0 +1,66 @@
+# Binaries for programs and plugins
+# (add your binary name(s) if you build to a fixed filename, e.g. "app")
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Example: ignore locally built binaries
+app
+restapi
+
+# Build output and packaging
+/bin/
+/build/
+/dist/
+out/
+
+# Dependency caches and generated vendor/cache
+/pkg/
+/vendor/
+/Godeps/
+
+# Go tool outputs
+coverage.out
+*.coverprofile
+*.prof
+
+# Module / workspace files
+# Keep go.mod and go.sum committed; decide if you want go.work committed for multi-module setups
+go.work
+
+# Environment, secrets, local config
+.env
+.env.*
+*.secret
+secrets.yaml
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.iml
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temp
+*.log
+*.tmp
+*.tmp.*
+*.cache
+
+# Merge / patch leftovers
+*.orig
+
+# Optional: test & coverage caches
+_testdata/
+
+# Personal dev vault
+/vault
