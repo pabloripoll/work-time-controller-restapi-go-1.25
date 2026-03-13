@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS "master_access_logs" CASCADE;

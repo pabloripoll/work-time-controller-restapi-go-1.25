@@ -51,11 +51,6 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	// Run auto migrations
-	if err := postgres.AutoMigrate(db); err != nil {
-		log.Fatalf("Failed to run migrations: %v", err)
-	}
-
 	// JWT
 	jwtSecret := getEnv("JWT_SECRET", "your-secret-key-change-in-production")
 	jwtIssuer := getEnv("JWT_ISSUER", "worktic-api")

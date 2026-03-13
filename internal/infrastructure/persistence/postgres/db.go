@@ -52,35 +52,9 @@ func NewDatabase(config Config) (*gorm.DB, error) {
 	sqlDB.SetMaxOpenConns(100)
 	sqlDB.SetConnMaxLifetime(time.Hour)
 
-	log.Println("✅ Database connection established")
+	log.Println("Database connection established.")
 
 	return db, nil
-}
-
-func AutoMigrate(db *gorm.DB) error {
-	log.Println("🔄 Running auto migrations...")
-
-	err := db.AutoMigrate(
-		&UserModel{},
-		&MasterModel{},
-		&MasterProfileModel{},
-		&MasterAccessLogModel{},
-		&AdminModel{},
-		&AdminProfileModel{},
-		&AdminAccessLogModel{},
-		&EmployeeModel{},
-		&EmployeeProfileModel{},
-		&EmployeeAccessLogModel{},
-		&OfficeDepartmentModel{},
-		&OfficeJobModel{},
-	)
-
-	if err != nil {
-		return fmt.Errorf("auto migration failed: %w", err)
-	}
-
-	log.Println("✅ Auto migrations completed")
-	return nil
 }
 
 func LoadConfigFromEnv() Config {

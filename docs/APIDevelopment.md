@@ -49,10 +49,6 @@ $ make apirest-ssh
 ```bash
 /var/www $ go run cmd/api/main.go
 ```
-
-### Container re-build
-
-On every container re-build `go mod tidy` command must be executed.
 <br><br>
 
 ## API Improvement
@@ -81,6 +77,46 @@ Deeply cache clearing
 
 # Run
 /var/www $ go run cmd/api/main.go
+```
+
+#### Container re-build
+
+On every container re-build `go mod tidy` command must be executed.
+<br>
+
+#### Database Migrations
+
+There is a function using GORM's AutoMigrate() but commented because is great for prototyping, is terrible for production as it doesn't drop columns, can't easily handle data transformations, and leaves no history.
+
+To get framework-style migrations in Go, the industry standard is golang-migrate/migrate.
+
+Step 1: Install the CLI tool (on your local machine)
+
+The github.com/golang-migrate/migrate/v4/cmd/migrate@latest is a standalone program for your terminal. You install it globally on your machine, not into your project. Run this once on your machine/container:
+```bash
+# On Mac/Linux
+/var/www $ go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+```
+
+Step 2: Create your first migration files Run this command in your project root:
+```bash
+# On Mac/Linux
+/var/www $ migrate create -ext sql -dir ./migrations create_example_table
+```
+
+This generates two files in your migrations/ folder:
+```bash
+20240211221748_create_example_table.up.sql # What runs when you migrate
+20240211221748_create_example_table.down.sql # What runs when you rollback
+```
+
+For a better production-grade approach, there is a command to run migrations
+```bash
+# To run migrations forward
+/var/www $ go run ./cmd/db-migrate/main.go -up
+
+# To undo the last migration
+/var/www $ go run ./cmd/db-migrate/main.go -down
 ```
 <br>
 

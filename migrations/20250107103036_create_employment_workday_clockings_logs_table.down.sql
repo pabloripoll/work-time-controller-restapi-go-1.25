@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS "employment_workday_clockings_logs" CASCADE;

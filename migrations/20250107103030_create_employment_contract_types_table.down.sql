@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS "employment_contract_type" CASCADE;
